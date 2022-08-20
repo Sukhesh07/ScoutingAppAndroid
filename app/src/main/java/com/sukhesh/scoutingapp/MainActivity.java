@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -25,35 +24,33 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.home);
 
         //Deprecated method, On icon selected listener
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
+        bottomNavigationView.setOnItemSelectedListener(item -> {
 
-                Fragment fragment = null;
-                //If the case of a certain icon press is met, switch the view to the other view
-                switch (item.getItemId()) {
+            Fragment fragment = null;
+            //If the case of a certain icon press is met, switch the view to the other view
+            switch (item.getItemId()) {
 
-                    case R.id.home:
-                        fragment = new Home();
-                        break;
+                case R.id.home:
+                    fragment = new Home();
+                    break;
 
-                    case R.id.dashboard:
-                        fragment = new Dashboard();
-                        break;
+                case R.id.dashboard:
+                    fragment = new Dashboard();
+                    break;
 
-                    case R.id.history:
-                        fragment = new History();
-                        break;
+                case R.id.history:
+                    fragment = new History();
+                    break;
 
-                    case R.id.settings:
-                        fragment = new Settings();
-                        break;
+                case R.id.settings:
+                    fragment = new Settings();
+                    break;
 
-                }
-                getSupportFragmentManager().beginTransaction().replace(R.id.body_container, fragment).commit();
-
-                return true;
             }
+            assert fragment != null;
+            getSupportFragmentManager().beginTransaction().replace(R.id.body_container, fragment).commit();
+
+            return true;
         });
     }
 }

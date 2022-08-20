@@ -3,7 +3,7 @@
     import android.content.Intent;
     import android.os.Bundle;
     import android.os.Handler;
-    import android.view.WindowManager;
+    import android.os.Looper;
 
     import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,15 +14,12 @@
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         //hide annoying toolbar
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         //Run the splash screen for 4 seconds and switch to main activity
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(Splash.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            Intent intent = new Intent(Splash.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }, 4000);
     }
 }

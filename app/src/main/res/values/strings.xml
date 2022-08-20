@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">FEDS Scouting</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="History">History</string>
+    <string name="upcoming_matches">Upcoming Matches</string>
+    <string name="settings">SETTINGS</string>
 
     <string-array name="Match_List">
         <item>Quals 1</item>

@@ -18,17 +18,17 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="40dp">
+            android:padding="40sp">
 
             <TextView
                 android:id="@+id/upcoming_matches"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
-                android:textColor="@color/white"
-                android:textSize="24dp"
+                android:layout_marginTop="60sp"
+                android:textColor="@color/black"
+                android:textSize="24sp"
                 android:fontFamily="@font/firasansbold"
-                android:text="Upcoming Matches"
+                android:text="@string/upcoming_matches"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
