@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="30dp"
-        android:background="@drawable/round_corners"
-        app:itemIconTint="@drawable/slllll"
-        app:itemTextColor="@drawable/slllll"
+        android:background="@drawable/blue_background"
+        app:itemIconTint="@drawable/onclick_animation"
+        app:itemTextColor="@drawable/onclick_animation"
         app:menu="@menu/bottom_nav_menu" />
 </RelativeLayout>

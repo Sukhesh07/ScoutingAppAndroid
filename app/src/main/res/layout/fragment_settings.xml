@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/minimalist_background"
-    tools:context=".SettingsFragment">
+    android:background="@drawable/main_background"
+    tools:context=".Settings">
 
     <TextView
         android:id="@+id/textView"
