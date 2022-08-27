@@ -5,22 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context=".Home">
+    tools:context=".Dashboard">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="40sp">
-
+        android:padding="0sp">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/dashboard_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dashboard"
-            android:textColor="@color/black"
-            android:textSize="36sp"
-            android:fontFamily="@font/firasansbold"
+            android:fontFamily="@font/adampro"
+            android:layout_marginRight="60sp"
+            android:textSize="64sp"
+            android:text="Qual 10 |"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dashboard_teamNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adampro"
+            android:layout_marginRight="190sp"
+            android:textSize="32sp"
+            android:text="Team 201"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
+
+        <TextView
+            android:id="@+id/dashboard_teamColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adampro"
+            android:layout_marginLeft="20sp"
+            android:textSize="32sp"
+            android:text="Blue - 1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dashboard_teamNum"
+            app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150sp"
+            android:text="Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

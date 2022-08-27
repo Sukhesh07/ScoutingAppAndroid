@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -16,10 +16,17 @@ import java.util.Collections;
 
 public class Home extends Fragment {
 
-    MyRecyclerViewAdapter adapter;
+    RecyclerViewAdapter adapter;
+    private View rootView;
+    TextView title;
+    TextView teamNum;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        
+        title = (TextView) rootView.findViewById(R.id.dashboard_title);
+        teamNum = (TextView) rootView.findViewById(R.id.dashboard_teamNum);
 
         //Set up the RecyclerView
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
@@ -31,11 +38,17 @@ public class Home extends Fragment {
         String[] arr = getResources().getStringArray(R.array.Match_List);
         Collections.addAll(animalNames, arr);
 
-        adapter = new MyRecyclerViewAdapter(getActivity(), animalNames);
+        adapter = new RecyclerViewAdapter(getActivity(), animalNames);
         recyclerView.setAdapter(adapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         //If one of the quals are clicked
-        adapter.setClickListener(position -> Toast.makeText(getActivity(), "You clicked " + adapter.getItem(position) + " on row number " + (position + 1), Toast.LENGTH_SHORT).show());
+        adapter.setClickListener(new RecyclerViewAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                title.setText("Hellow");
+                teamNum.setText("sup");
+            }
+        });
         return rootView;
     }
 }
