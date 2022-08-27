@@ -20,8 +20,9 @@ public class Dashboard extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
         TextView text = rootView.findViewById(R.id.dashboard_title);
 
-        SharedPreferences qualsData = getContext().getSharedPreferences("quals", Context.MODE_PRIVATE);
-        text.setText(qualsData.getString("Match", "Quals -1"));
+        Match currentMatch = Match.MatchFromSharedPreferences(getContext().getSharedPreferences("quals", Context.MODE_PRIVATE));
+
+        text.setText(currentMatch.matchName());
 
         return rootView;
     }

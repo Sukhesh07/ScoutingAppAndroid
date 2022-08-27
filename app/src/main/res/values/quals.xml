@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="quals">
+        <item>Qualifier,1,201,The FEDS,Red 1</item>
+        <item>Qualifier,2,201,The FEDS,Red 2</item>
+        <item>Qualifier,3,226,Hammerheads,Red 1</item>
+        <item>Qualifier,4,3435,The RoboJackets,Blue 1</item>
+        <item>Qualifier,5,201,The FEDS,Blue 2</item>
+    </string-array>
+</resources>

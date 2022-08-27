@@ -41,32 +41,27 @@ public class Home extends Fragment {
         qualsList.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         /*
-         * Collect each match name from resources, and add to matchNames ArrayListHardcoding each Qual Match
+         * Instantiate Match list from quals.xml using Matches object
          */
-        ArrayList<String> matchNames = new ArrayList<>();
         // collect the matches from strings.xml
-        String[] rawStringValues = getResources().getStringArray(R.array.Match_List);
-        // String array --> more usable ArrayList
-        Collections.addAll(matchNames, rawStringValues);
+        String[] rawStringValues = getResources().getStringArray(R.array.quals);
+        Matches matches = new Matches(rawStringValues);
 
         /*
          * Set up what happens when a Qual is pressed
          */
-        QualsRecyclerViewAdapter qualsAdapter = new QualsRecyclerViewAdapter(getActivity(), matchNames);
+        QualsRecyclerViewAdapter qualsAdapter = new QualsRecyclerViewAdapter(getActivity(), matches.listOfMatchTypeAndNumber());
         // use our adaptor, see QualsRecyclerViewAdapter, to interact with the Quals RecycleView
         qualsList.setAdapter(qualsAdapter);
         qualsList.setItemAnimator(new DefaultItemAnimator());
 
         qualsAdapter.setClickListener(position -> {
-            // this needs a considerable amount of improvement... BUT IT FREAKING WORKS HELL YEAH
-            SharedPreferences thisQualsMatch = getContext().getSharedPreferences("quals", Context.MODE_PRIVATE);
-            SharedPreferences.Editor thisQualsMatchEditor = thisQualsMatch.edit();
-            thisQualsMatchEditor.putString("Match", qualsAdapter.getItem(position));
-            thisQualsMatchEditor.commit();
+            String matchName = qualsAdapter.getItem(position);
+            matches.storeMatchByMatchName(matchName, getContext().getSharedPreferences("quals", Context.MODE_PRIVATE));
 
             Toast.makeText(
                     getActivity(), // what to make the text for
-                    "The value of Match in SharedPreferences is " + thisQualsMatch.getString("Match", "Quals -1"), // the text
+                    "The matchName is " + matchName, // the text
                     Toast.LENGTH_SHORT // duration
             ).show(); // show it after creating it
         });
