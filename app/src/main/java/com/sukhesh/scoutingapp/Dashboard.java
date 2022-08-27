@@ -1,5 +1,7 @@
 package com.sukhesh.scoutingapp;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,17 +14,15 @@ import android.widget.TextView;
 
 public class Dashboard extends Fragment {
 
-    Button btn;
-    TextView text;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        btn = rootView.findViewById(R.id.button);
-        text = rootView.findViewById(R.id.dashboard_title);
+        Button btn = rootView.findViewById(R.id.button);
+        TextView text = rootView.findViewById(R.id.dashboard_title);
 
-        btn.setOnClickListener(view -> text.setText("Hello"));
+        SharedPreferences qualsData = getContext().getSharedPreferences("quals", Context.MODE_PRIVATE);
+        text.setText(qualsData.getString("Match", "Quals -1"));
 
         return rootView;
     }
