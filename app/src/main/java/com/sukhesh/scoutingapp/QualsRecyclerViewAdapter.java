@@ -34,8 +34,8 @@ public class QualsRecyclerViewAdapter extends RecyclerView.Adapter<QualsRecycler
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+        String qual = mData.get(position);
+        holder.myTextView.setText(qual);
     }
 
     // total number of rows

@@ -4,6 +4,9 @@
     <string name="History">History</string>
     <string name="upcoming_matches">Upcoming Matches</string>
     <string name="settings">SETTINGS</string>
+    <string name="title">Title |</string>
+    <string name="teamNum_title">Team #</string>
+    <string name="color_title">Color</string>
 
     <string-array name="Match_List">
         <item>Quals 1</item>
