@@ -12,23 +12,17 @@ import android.widget.TextView;
 
 public class Dashboard extends Fragment {
 
-    private View rootView;
     Button btn;
     TextView text;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        btn = (Button) rootView.findViewById(R.id.button);
-        text = (TextView) rootView.findViewById(R.id.dashboard_title);
+        View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        btn = rootView.findViewById(R.id.button);
+        text = rootView.findViewById(R.id.dashboard_title);
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                text.setText("Hello");
-            }
-        });
+        btn.setOnClickListener(view -> text.setText("Hello"));
 
         return rootView;
     }

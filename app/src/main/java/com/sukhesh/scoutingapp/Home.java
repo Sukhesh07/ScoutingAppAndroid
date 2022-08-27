@@ -16,14 +16,12 @@ import java.util.Collections;
 
 public class Home extends Fragment {
 
-    private View rootView;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View rootView1 = inflater.inflate(R.layout.fragment_dashboard, container, false);
         
-        TextView title = (TextView) rootView.findViewById(R.id.dashboard_title);
-        TextView teamNum = (TextView) rootView.findViewById(R.id.dashboard_teamNum);
+        TextView title = rootView1.findViewById(R.id.dashboard_title);
+        TextView teamNum = rootView1.findViewById(R.id.dashboard_teamNum);
 
         /*
          * Set up the RecyclerView (essentially a list of items)
@@ -31,7 +29,7 @@ public class Home extends Fragment {
         // access to this view (see fragment_home.xml)
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         // access to the view's recycler view object
-        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.rvQuals);
+        RecyclerView recyclerView = rootView.findViewById(R.id.rvQuals);
         // set the layout for the recycler
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -53,12 +51,9 @@ public class Home extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         //If one of the quals are clicked
-        adapter.setClickListener(new RecyclerViewAdapter.ItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                title.setText("Hellow");
-                teamNum.setText("sup");
-            }
+        adapter.setClickListener(() -> {
+            title.setText("Hellow");
+            teamNum.setText("sup");
         });
 
         return rootView;
