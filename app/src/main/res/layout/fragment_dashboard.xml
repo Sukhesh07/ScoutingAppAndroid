@@ -10,16 +10,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="40sp">
+        android:paddingBottom="40sp">
 
         <TextView
             android:id="@+id/dashboard_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/adampro"
-            android:gravity="center"
             android:textSize="64sp"
-            android:text="@string/title"
+            android:textColor="@color/FEDS_WHITE"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:text="Title |"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +32,10 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/adampro"
             android:textSize="32sp"
+            android:textColor="@color/FEDS_WHITE"
+            android:layout_marginLeft="50sp"
             android:text="@string/teamNum_title"
+            android:layout_marginTop="30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
 
@@ -39,17 +44,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/adampro"
+            android:layout_marginRight="50sp"
+            android:layout_marginTop="30sp"
             android:textSize="32sp"
+            android:textColor="@color/FEDS_WHITE"
             android:text="@string/color_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
 
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="370dp"
-            android:layout_height="4dp"
-            android:layout_marginTop="40sp"
-            android:background="@color/FEDS_WHITE"
+        <ImageView
+            android:id="@+id/iv_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            android:layout_marginTop="250sp"
+            app:layout_constraintTop_toBottomOf="@+id/dashboard_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/bt_generate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Generate QR"
+            android:layout_marginTop="90sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
