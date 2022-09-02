@@ -12,14 +12,15 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Set;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 public class Home extends Fragment {
 
@@ -59,11 +60,18 @@ public class Home extends Fragment {
             String matchName = qualsAdapter.getItem(position);
             matches.storeMatchByMatchName(matchName, getContext().getSharedPreferences("quals", Context.MODE_PRIVATE));
 
-            Toast.makeText(
-                    getActivity(), // what to make the text for
-                    "The matchName is " + matchName, // the text
-                    Toast.LENGTH_SHORT // duration
-            ).show(); // show it after creating it
+            BottomNavigationView bottomNav = getActivity().findViewById(R.id.bottom_navigation);
+            bottomNav.setSelectedItemId(R.id.dashboard);
+
+            FragmentTransaction fr = getParentFragmentManager().beginTransaction();
+            fr.replace(R.id.body_container, new Dashboard());
+            fr.commit();
+
+//            Toast.makeText(
+//                    getActivity(), // what to make the text for
+//                    "The matchName is " + matchName, // the text
+//                    Toast.LENGTH_SHORT // duration
+//            ).show(); // show it after creating it
         });
         return homeView;
     }
