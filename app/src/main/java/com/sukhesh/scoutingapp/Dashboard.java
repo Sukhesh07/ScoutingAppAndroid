@@ -1,7 +1,6 @@
 package com.sukhesh.scoutingapp;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
@@ -36,21 +35,21 @@ public class Dashboard extends Fragment {
         //https://github.com/zxing/zxing
         Button btGenerate = rootView.findViewById(R.id.bt_generate);
         ImageView ivOutput = rootView.findViewById(R.id.iv_output);
-        String str = "Hello1";
-            btGenerate.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    MultiFormatWriter writer = new MultiFormatWriter();
-                    try {
-                        BitMatrix matrix = writer.encode(str, BarcodeFormat.QR_CODE, 500, 500);
-                        BarcodeEncoder encoder = new BarcodeEncoder();
-                        Bitmap bitmap = encoder.createBitmap(matrix);
-                        ivOutput.setImageBitmap(bitmap);
-                    } catch (WriterException e) {
-                        e.printStackTrace();
-                    }
+        String msg = currentMatch.citrusCircuitStyleMessage();
+        btGenerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MultiFormatWriter writer = new MultiFormatWriter();
+                try {
+                    BitMatrix matrix = writer.encode(msg, BarcodeFormat.QR_CODE, 500, 500);
+                    BarcodeEncoder encoder = new BarcodeEncoder();
+                    Bitmap bitmap = encoder.createBitmap(matrix);
+                    ivOutput.setImageBitmap(bitmap);
+                } catch (WriterException e) {
+                    e.printStackTrace();
                 }
-            });
+            }
+        });
         return rootView;
     }
 }

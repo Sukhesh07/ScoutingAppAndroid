@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="quals">
+        <!-- TODO: remove team name from schema -->
         <item>Qualifier,1,201,The FEDS,Red 1</item>
         <item>Qualifier,2,201,The FEDS,Red 2</item>
         <item>Qualifier,3,226,Hammerheads,Red 1</item>
