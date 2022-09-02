@@ -2,9 +2,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background"
+    android:background="@drawable/gradient_list"
     tools:context=".Dashboard">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,8 +17,8 @@
             android:id="@+id/dashboard_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/adampro"
-            android:textSize="64sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:textSize="60sp"
             android:textColor="@color/FEDS_WHITE"
             android:textAlignment="center"
             android:layout_marginTop="20dp"
@@ -30,12 +31,12 @@
             android:id="@+id/dashboard_teamNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/adampro"
+            android:fontFamily="@font/faxsansbeta"
             android:textSize="32sp"
             android:textColor="@color/FEDS_WHITE"
             android:layout_marginLeft="50sp"
             android:text="@string/teamNum_title"
-            android:layout_marginTop="30sp"
+            android:layout_marginTop="0sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
 
@@ -43,9 +44,9 @@
             android:id="@+id/dashboard_teamColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/adampro"
+            android:fontFamily="@font/faxsansbeta"
             android:layout_marginRight="50sp"
-            android:layout_marginTop="30sp"
+            android:layout_marginTop="0sp"
             android:textSize="32sp"
             android:textColor="@color/FEDS_WHITE"
             android:text="@string/color_title"
@@ -67,11 +68,167 @@
             android:id="@+id/bt_generate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1164dp"
             android:text="Generate QR"
-            android:layout_marginTop="90sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
+
+        <TextView
+            android:id="@+id/title_Autonomous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/FEDS_WHITE"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Autonomous"
+            android:textSize="42sp"
+            android:layout_marginTop="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="300sp"
+            android:layout_height="3sp"
+            android:background="@color/FEDS_WHITE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+
+        <TextView
+            android:id="@+id/Auton_High_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50sp"
+            android:layout_marginRight="280sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="High"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="3dp"
+            android:layout_height="90sp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="27sp"
+            android:background="@color/FEDS_WHITE"
+            app:layout_constraintStart_toEndOf="@+id/Auton_High_Title"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <TextView
+            android:id="@+id/Auton_Make_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Makes"
+            android:layout_marginRight="110sp"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="24sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:layout_marginTop="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+
+        <TextView
+            android:id="@+id/auton_Miss_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90sp"
+            android:layout_marginRight="110sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Misses"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+
+        <Button
+            android:id="@+id/button_plus"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginLeft="20sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="+"
+            android:textSize="20sp"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            app:layout_constraintStart_toEndOf="@+id/Auton_Make_title"
+            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+
+        <Button
+            android:id="@+id/button_plus2"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="80sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="+"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Auton_Make_title"
+            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+
+        <Button
+            android:id="@+id/button_minus"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginLeft="135sp"
+            android:layout_marginTop="20sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="-"
+            android:textSize="20sp"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            app:layout_constraintStart_toEndOf="@+id/Auton_Make_title"
+            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+
+        <Button
+            android:id="@+id/button_minus2"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginLeft="135sp"
+            android:layout_marginTop="80sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="-"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Auton_Make_title"
+            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+
+        <TextView
+            android:id="@+id/tally"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginTop="17sp"
+            android:layout_marginLeft="20sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:textSize="40sp"
+            android:textColor="@color/FEDS_WHITE"
+            app:layout_constraintStart_toEndOf="@+id/button_plus"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <TextView
+            android:id="@+id/tally2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="77sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="0"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="40sp"
+            app:layout_constraintStart_toEndOf="@+id/button_plus"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
