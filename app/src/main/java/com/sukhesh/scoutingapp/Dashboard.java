@@ -36,7 +36,7 @@ public class Dashboard extends Fragment {
         //https://github.com/zxing/zxing
         Button btGenerate = rootView.findViewById(R.id.bt_generate);
         ImageView ivOutput = rootView.findViewById(R.id.iv_output);
-        String str = "Hello2";
+        String str = "Hello1";
             btGenerate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
