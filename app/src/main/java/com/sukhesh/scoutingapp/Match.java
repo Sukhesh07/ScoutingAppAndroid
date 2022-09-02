@@ -53,6 +53,7 @@ public class Match {
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     }
+                    break;
                 case "double":
                 case "float":
                     try {
