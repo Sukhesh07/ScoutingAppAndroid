@@ -6,6 +6,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Handler;
 import android.os.SystemClock;
@@ -30,6 +31,7 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 public class Dashboard extends Fragment {
 
+    //You have to make shared preferences for all of these inc variables, the checkboxes, the stopwatch and the seekbar
     int inc = 0;
     int inc2 = 0;
     int inc3 = 0;
@@ -65,6 +67,8 @@ public class Dashboard extends Fragment {
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
 
+
+        //Move this to FinishTab.java thats where the qr is being created
         TextView text = rootView.findViewById(R.id.dashboard_title);
         Match currentMatch = Match.MatchFromSharedPreferences(getContext().getSharedPreferences("quals", Context.MODE_PRIVATE));
         text.setText(currentMatch.matchName());
@@ -98,6 +102,7 @@ public class Dashboard extends Fragment {
         TextView tally7 = rootView.findViewById(R.id.tally7);
         TextView tally8 = rootView.findViewById(R.id.tally8);
 
+        //All of these have to go into shared preferences
         CheckBox leavesTarmac = rootView.findViewById(R.id.leavesTarmac);
         CheckBox humanScored = rootView.findViewById(R.id.humanScored);
         CheckBox playedDefence = rootView.findViewById(R.id.playedDefence);
@@ -260,6 +265,7 @@ public class Dashboard extends Fragment {
         }
 
         //Stopwatch
+        //somehow throw this into shared preferences
         stopwatch = rootView.findViewById(R.id.stopwatch);
         btStart = rootView.findViewById(R.id.play_button);
         btStop = rootView.findViewById(R.id.reset_button);
@@ -303,7 +309,7 @@ public class Dashboard extends Fragment {
             }
         });
 
-        //Seekbar
+        //Seekbar, throw into shared preferences
         SeekBar seekBar = rootView.findViewById(R.id.seekBar);
         TextView tv = rootView.findViewById(R.id.tv);
 
@@ -324,27 +330,16 @@ public class Dashboard extends Fragment {
             }
         });
 
-        //Qr generator, added implementation in build.gradle
-        //https://github.com/zxing/zxing
-        /*
-        Button btGenerate = rootView.findViewById(R.id.bt_generate);
-        ImageView ivOutput = rootView.findViewById(R.id.iv_output);
-        String msg = currentMatch.citrusCircuitStyleMessage();
-        btGenerate.setOnClickListener(new View.OnClickListener() {
+        //Finish Button
+        Button finish = rootView.findViewById(R.id.finish);
+        finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MultiFormatWriter writer = new MultiFormatWriter();
-                try {
-                    BitMatrix matrix = writer.encode(msg, BarcodeFormat.QR_CODE, 500, 500);
-                    BarcodeEncoder encoder = new BarcodeEncoder();
-                    Bitmap bitmap = encoder.createBitmap(matrix);
-                    ivOutput.setImageBitmap(bitmap);
-                } catch (WriterException e) {
-                    e.printStackTrace();
-                }
+                Fragment fragment = new FinishTab();
+                replaceFragment(fragment);
             }
         });
-        */
+
         return rootView;
     }
 
@@ -360,4 +355,10 @@ public class Dashboard extends Fragment {
             handler.postDelayed(this, 60);
         }
     };
+
+    public void replaceFragment(Fragment someFragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.body_container, someFragment);
+        transaction.commit();
+    }
 }
