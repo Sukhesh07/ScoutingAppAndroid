@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="40sp">
+        android:paddingBottom="150sp">
 
         <TextView
             android:id="@+id/dashboard_title"
@@ -53,39 +53,42 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
 
-        <ImageView
-            android:id="@+id/iv_output"
+        <TextView
+            android:id="@+id/title_Autonomous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:scaleType="center"
-            android:layout_marginTop="250sp"
-            app:layout_constraintTop_toBottomOf="@+id/dashboard_title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/bt_generate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="1164dp"
-            android:text="Generate QR"
+            android:layout_marginTop="40sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Autonomous"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="42sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
 
         <TextView
-            android:id="@+id/title_Autonomous"
+            android:id="@+id/title_Teleop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/FEDS_WHITE"
             android:fontFamily="@font/faxsansbeta"
-            android:text="Autonomous"
+            android:text="Teleop"
+            android:textColor="@color/FEDS_WHITE"
             android:textSize="42sp"
-            android:layout_marginTop="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
+            app:layout_constraintTop_toBottomOf="@+id/humanScored" />
+
+        <TextView
+            android:id="@+id/title_Endgame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Endgame"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="42sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playedDefence" />
 
         <View
             android:id="@+id/divider"
@@ -95,6 +98,64 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="3dp"
+            android:layout_height="90sp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="27sp"
+            android:background="@color/FEDS_WHITE"
+            app:layout_constraintStart_toEndOf="@+id/Auton_High_Title"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="3dp"
+            android:layout_height="90sp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="51sp"
+            android:background="@color/FEDS_WHITE"
+            app:layout_constraintStart_toEndOf="@+id/Auton_Low_Title"
+            app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="300sp"
+            android:layout_height="3sp"
+            android:background="@color/FEDS_WHITE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_Teleop" />
+
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="3dp"
+            android:layout_height="90sp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="27sp"
+            android:background="@color/FEDS_WHITE"
+            app:layout_constraintStart_toEndOf="@+id/Teleop_High_Title"
+            app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+        <View
+            android:id="@+id/divider6"
+            android:layout_width="3dp"
+            android:layout_height="90sp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="53sp"
+            android:background="@color/FEDS_WHITE"
+            app:layout_constraintStart_toEndOf="@+id/Teleop_Low_Title"
+            app:layout_constraintTop_toBottomOf="@+id/divider5" />
+
+        <View
+            android:id="@+id/divider7"
+            android:layout_width="300sp"
+            android:layout_height="3sp"
+            android:background="@color/FEDS_WHITE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_Endgame" />
 
         <TextView
             android:id="@+id/Auton_High_Title"
@@ -110,35 +171,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
 
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="3dp"
-            android:layout_height="90sp"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="27sp"
-            android:background="@color/FEDS_WHITE"
-            app:layout_constraintStart_toEndOf="@+id/Auton_High_Title"
-            app:layout_constraintTop_toBottomOf="@+id/divider" />
-
         <TextView
-            android:id="@+id/Auton_Make_title"
+            android:id="@+id/Auton_High_Make_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Makes"
+            android:layout_marginTop="30sp"
             android:layout_marginRight="110sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Makes"
             android:textColor="@color/FEDS_WHITE"
             android:textSize="24sp"
-            android:fontFamily="@font/faxsansbeta"
-            android:layout_marginTop="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
 
         <TextView
-            android:id="@+id/auton_Miss_title"
+            android:id="@+id/Auton_High_Miss_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="90sp"
+            android:layout_marginTop="30sp"
             android:layout_marginRight="110sp"
             android:fontFamily="@font/faxsansbeta"
             android:text="Misses"
@@ -146,7 +197,133 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Auton_High_Make_title" />
+
+        <TextView
+            android:id="@+id/Auton_Low_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100sp"
+            android:layout_marginRight="280sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Low"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Auton_High_Title" />
+
+        <TextView
+            android:id="@+id/Auton_Low_Make_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="172sp"
+            android:layout_marginRight="110sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Makes"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+
+        <TextView
+            android:id="@+id/Auton_Low_Miss_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:layout_marginRight="110sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Misses"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Auton_Low_Make_title" />
+
+        <TextView
+            android:id="@+id/Teleop_High_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50sp"
+            android:layout_marginRight="280sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="High"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+        <TextView
+            android:id="@+id/Teleop_High_Make_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:layout_marginRight="110sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Makes"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+        <TextView
+            android:id="@+id/Teleop_High_Miss_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:layout_marginRight="110sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Misses"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Teleop_High_Make_title" />
+
+        <TextView
+            android:id="@+id/Teleop_Low_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="280sp"
+            android:layout_marginTop="100sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Low"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Teleop_High_Title" />
+
+        <TextView
+            android:id="@+id/Teleop_Low_Make_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="172sp"
+            android:layout_marginRight="110sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Makes"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+        <TextView
+            android:id="@+id/Teleop_Low_Miss_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="110sp"
+            android:layout_marginTop="30sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Misses"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Teleop_Low_Make_title" />
 
         <Button
             android:id="@+id/button_plus"
@@ -159,7 +336,7 @@
             android:textSize="20sp"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
-            app:layout_constraintStart_toEndOf="@+id/Auton_Make_title"
+            app:layout_constraintStart_toEndOf="@+id/Auton_High_Make_title"
             app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
 
         <Button
@@ -167,53 +344,221 @@
             android:layout_width="50sp"
             android:layout_height="50sp"
             android:layout_marginLeft="20sp"
-            android:layout_marginTop="80sp"
+            android:layout_marginTop="10sp"
             android:backgroundTint="@color/FEDS_WHITE"
             android:text="+"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/Auton_Make_title"
-            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+            app:layout_constraintStart_toEndOf="@+id/Auton_High_Miss_title"
+            app:layout_constraintTop_toBottomOf="@+id/button_plus" />
+
+        <Button
+            android:id="@+id/button_plus3"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="30sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="+"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Auton_Low_Make_title"
+            app:layout_constraintTop_toBottomOf="@+id/button_plus2" />
+
+        <Button
+            android:id="@+id/button_plus4"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="10sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="+"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Auton_Low_Miss_title"
+            app:layout_constraintTop_toBottomOf="@+id/button_plus3" />
+
+        <Button
+            android:id="@+id/button_plus5"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginLeft="20sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="+"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Teleop_High_Make_title"
+            app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+        <Button
+            android:id="@+id/button_plus6"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="10sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="+"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Teleop_High_Miss_title"
+            app:layout_constraintTop_toBottomOf="@+id/button_plus5" />
+
+        <Button
+            android:id="@+id/button_plus7"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginTop="30sp"
+            android:layout_marginLeft="20sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="+"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Teleop_Low_Make_title"
+            app:layout_constraintTop_toBottomOf="@+id/button_plus6" />
+
+        <Button
+            android:id="@+id/button_plus8"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginLeft="20sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="+"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Teleop_Low_Miss_title"
+            app:layout_constraintTop_toBottomOf="@+id/button_plus7" />
 
         <Button
             android:id="@+id/button_minus"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:layout_marginLeft="135sp"
             android:layout_marginTop="20sp"
+            android:layout_marginLeft="135sp"
             android:backgroundTint="@color/FEDS_WHITE"
             android:text="-"
-            android:textSize="20sp"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
-            app:layout_constraintStart_toEndOf="@+id/Auton_Make_title"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Auton_High_Make_title"
             app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
 
         <Button
             android:id="@+id/button_minus2"
             android:layout_width="50sp"
             android:layout_height="50sp"
+            android:layout_marginTop="10sp"
             android:layout_marginLeft="135sp"
-            android:layout_marginTop="80sp"
             android:backgroundTint="@color/FEDS_WHITE"
             android:text="-"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/Auton_Make_title"
-            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+            app:layout_constraintStart_toEndOf="@+id/Auton_High_Miss_title"
+            app:layout_constraintTop_toBottomOf="@+id/button_minus" />
+
+        <Button
+            android:id="@+id/button_minus3"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginLeft="135sp"
+            android:layout_marginTop="30sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="-"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Auton_Low_Make_title"
+            app:layout_constraintTop_toBottomOf="@+id/button_minus2" />
+
+        <Button
+            android:id="@+id/button_minus4"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginLeft="135sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="-"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Auton_Low_Miss_title"
+            app:layout_constraintTop_toBottomOf="@+id/button_minus3" />
+
+        <Button
+            android:id="@+id/button_minus5"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginLeft="135sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="-"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Teleop_High_Make_title"
+            app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+        <Button
+            android:id="@+id/button_minus6"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginLeft="135sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="-"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Teleop_High_Miss_title"
+            app:layout_constraintTop_toBottomOf="@+id/button_minus5" />
+
+        <Button
+            android:id="@+id/button_minus7"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginTop="30sp"
+            android:layout_marginLeft="135sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="-"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Teleop_Low_Make_title"
+            app:layout_constraintTop_toBottomOf="@+id/button_minus6" />
+
+        <Button
+            android:id="@+id/button_minus8"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginLeft="135sp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="-"
+            android:textAlignment="gravity"
+            android:textColor="@color/FEDS_BLACK"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/Teleop_Low_Miss_title"
+            app:layout_constraintTop_toBottomOf="@+id/button_minus7" />
 
         <TextView
             android:id="@+id/tally"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:layout_marginTop="17sp"
-            android:layout_marginLeft="20sp"
             android:fontFamily="@font/faxsansbeta"
-            android:textSize="40sp"
+            android:text="0"
             android:textColor="@color/FEDS_WHITE"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toStartOf="@+id/button_minus"
             app:layout_constraintStart_toEndOf="@+id/button_plus"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
 
@@ -221,14 +566,254 @@
             android:id="@+id/tally2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginTop="77sp"
+            android:layout_marginTop="10sp"
             android:fontFamily="@font/faxsansbeta"
             android:text="0"
             android:textColor="@color/FEDS_WHITE"
             android:textSize="40sp"
-            app:layout_constraintStart_toEndOf="@+id/button_plus"
-            app:layout_constraintTop_toBottomOf="@+id/divider" />
+            app:layout_constraintEnd_toStartOf="@+id/button_minus2"
+            app:layout_constraintStart_toEndOf="@+id/button_plus2"
+            app:layout_constraintTop_toBottomOf="@+id/tally" />
+
+        <TextView
+            android:id="@+id/tally3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="0"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toStartOf="@+id/button_minus3"
+            app:layout_constraintStart_toEndOf="@+id/button_plus3"
+            app:layout_constraintTop_toBottomOf="@+id/tally2" />
+
+        <TextView
+            android:id="@+id/tally4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="0"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toStartOf="@+id/button_minus4"
+            app:layout_constraintStart_toEndOf="@+id/button_plus4"
+            app:layout_constraintTop_toBottomOf="@+id/tally3" />
+
+        <TextView
+            android:id="@+id/tally5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="0"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toStartOf="@+id/button_minus5"
+            app:layout_constraintStart_toEndOf="@+id/button_plus5"
+            app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+        <TextView
+            android:id="@+id/tally6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="0"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toStartOf="@+id/button_minus6"
+            app:layout_constraintStart_toEndOf="@+id/button_plus6"
+            app:layout_constraintTop_toBottomOf="@+id/tally5" />
+
+        <TextView
+            android:id="@+id/tally7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="37sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="0"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toStartOf="@+id/button_minus7"
+            app:layout_constraintStart_toEndOf="@+id/button_plus7"
+            app:layout_constraintTop_toBottomOf="@+id/tally6" />
+
+        <TextView
+            android:id="@+id/tally8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="0"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toStartOf="@+id/button_minus8"
+            app:layout_constraintStart_toEndOf="@+id/button_plus8"
+            app:layout_constraintTop_toBottomOf="@+id/tally7" />
+
+        <CheckBox
+            android:id="@+id/leavesTarmac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="280sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="32sp"
+            android:text="Leaves Tarmac?"
+            android:buttonTint="@color/FEDS_WHITE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+
+        <CheckBox
+            android:id="@+id/humanScored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:buttonTint="@color/FEDS_WHITE"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Human Scored?"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/leavesTarmac" />
+
+        <CheckBox
+            android:id="@+id/playedDefence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="280sp"
+            android:buttonTint="@color/FEDS_WHITE"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Played Defence?"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+        <Chronometer
+            android:id="@+id/stopwatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:format="00:00"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="42sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider7" />
+
+        <ImageButton
+            android:id="@+id/play_button"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginRight="70sp"
+            android:background="@drawable/white_background"
+            android:src="@drawable/play_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stopwatch" />
+
+        <ImageButton
+            android:id="@+id/reset_button"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_marginLeft="70sp"
+            android:background="@drawable/white_background"
+            android:src="@drawable/refresh_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stopwatch" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:max="4"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:progressBackgroundTint="@color/FEDS_WHITE"
+            android:thumbTint="@color/FEDS_WHITE"
+            android:secondaryProgressTint="@color/FEDS_WHITE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bar Climbed: "
+            android:layout_marginTop="80sp"
+            android:fontFamily="@font/faxsansbeta"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stopwatch" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/FEDS_WHITE"
+            android:layout_marginTop="20sp"
+            android:inputType="textPersonName"
+            android:text="Notes:"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+        <TextView
+            android:id="@+id/title_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Overall Rating"
+            android:fontFamily="@font/faxsansbeta"
+            android:layout_marginTop="40sp"
+            android:textSize="32sp"
+            android:textColor="@color/FEDS_WHITE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+        <RatingBar
+            android:id="@+id/ratingBar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/FEDS_WHITE"
+            android:secondaryProgressTint="@color/FEDS_WHITE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_rating" />
+
+        <ImageView
+            android:id="@+id/iv_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250sp"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
+
+        <Button
+            android:id="@+id/finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1350dp"
+            android:backgroundTint="@color/FEDS_WHITE"
+            android:text="Finish"
+            android:textColor="@color/FEDS_BLACK"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
