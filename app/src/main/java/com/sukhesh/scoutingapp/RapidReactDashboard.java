@@ -62,8 +62,6 @@ public class RapidReactDashboard extends Fragment {
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
 
-        Codes jsonCodes = new Codes(getResources().getStringArray(R.array.codes));
-
 
 
         //Move this to FinishTab.java thats where the qr is being created
@@ -74,184 +72,32 @@ public class RapidReactDashboard extends Fragment {
         //Part where I absolutely violated Dashboard
         //Zayn you are absolutely going to have fun renaming all of these variables since you get code ocd
         // i hate you sm :)))
-        ArrayList<View> plusButtons = new ArrayList<View>();
+        ArrayList<View> finiteintViews = new ArrayList<View>();
+        rootView.findViewsWithText(finiteintViews, "FiniteInt", View.FIND_VIEWS_WITH_CONTENT_DESCRIPTION);
+        ArrayList<FiniteInt> finiteInts = FiniteInt.generateArrayListFromViews(finiteintViews);
 
-        //rootView.findViewsWithText(plusButtons, "+");
-        Button btnPlus = rootView.findViewById(R.id.button_plus);
-        Button btnPlus2 = rootView.findViewById(R.id.button_plus2);
-        Button btnPlus3 = rootView.findViewById(R.id.button_plus3);
-        Button btnPlus4 = rootView.findViewById(R.id.button_plus4);
-        Button btnPlus5 = rootView.findViewById(R.id.button_plus5);
-        Button btnPlus6 = rootView.findViewById(R.id.button_plus6);
-        Button btnPlus7 = rootView.findViewById(R.id.button_plus7);
-        Button btnPlus8 = rootView.findViewById(R.id.button_plus8);
+        for(FiniteInt f: finiteInts) {
+            f.plus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    f.value++;
+                    f.tally.setText(Integer.toString(f.value));
+                }
+            });
+            f.minus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    f.value--;
+                    f.tally.setText(Integer.toString(f.value));
+                }
+            });
+        }
 
-        Button btnMinus = rootView.findViewById(R.id.button_minus);
-        Button btnMinus2 = rootView.findViewById(R.id.button_minus2);
-        Button btnMinus3 = rootView.findViewById(R.id.button_minus3);
-        Button btnMinus4 = rootView.findViewById(R.id.button_minus4);
-        Button btnMinus5 = rootView.findViewById(R.id.button_minus5);
-        Button btnMinus6 = rootView.findViewById(R.id.button_minus6);
-        Button btnMinus7 = rootView.findViewById(R.id.button_minus7);
-        Button btnMinus8 = rootView.findViewById(R.id.button_minus8);
-
-        TextView tally = rootView.findViewById(R.id.tally);
-        TextView tally2 = rootView.findViewById(R.id.tally2);
-        TextView tally3 = rootView.findViewById(R.id.tally3);
-        TextView tally4 = rootView.findViewById(R.id.tally4);
-        TextView tally5 = rootView.findViewById(R.id.tally5);
-        TextView tally6 = rootView.findViewById(R.id.tally6);
-        TextView tally7 = rootView.findViewById(R.id.tally7);
-        TextView tally8 = rootView.findViewById(R.id.tally8);
 
         //All of these have to go into shared preferences
         CheckBox leavesTarmac = rootView.findViewById(R.id.leavesTarmac);
         CheckBox humanScored = rootView.findViewById(R.id.humanScored);
         CheckBox playedDefence = rootView.findViewById(R.id.playedDefence);
-
-        //Auton High Make + Button
-        btnPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc++;
-                tally.setText(Integer.toString(inc));
-            }
-        });
-
-        //Auton High Make - Button
-        btnMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc--;
-                tally.setText(Integer.toString(inc));
-            }
-        });
-
-        //Auton High Miss + Button
-        btnPlus2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc2++;
-                tally2.setText(Integer.toString(inc2));
-            }
-        });
-
-        //Auton High Miss - Button
-        btnMinus2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc2--;
-                tally2.setText(Integer.toString(inc2));
-            }
-        });
-
-        //Auton Low Make + Button
-        btnPlus3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc3++;
-                tally3.setText(Integer.toString(inc3));
-            }
-        });
-
-        //Auton Low Make - Button
-        btnMinus3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc3--;
-                tally3.setText(Integer.toString(inc3));
-            }
-        });
-
-        //Auton Low Miss + Button
-        btnPlus4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc4++;
-                tally4.setText(Integer.toString(inc4));
-            }
-        });
-
-        //Auton Low Miss - Button
-        btnMinus4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc4--;
-                tally4.setText(Integer.toString(inc4));
-            }
-        });
-
-        //Teleop High Make + Button
-        btnPlus5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc5++;
-                tally5.setText(Integer.toString(inc5));
-            }
-        });
-
-        //Teleop High Make - Button
-        btnMinus5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc5--;
-                tally5.setText(Integer.toString(inc5));
-            }
-        });
-
-        //Teleop High Miss + Button
-        btnPlus6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc6++;
-                tally6.setText(Integer.toString(inc6));
-            }
-        });
-
-        //Teleop High Miss - Button
-        btnMinus6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc6--;
-                tally6.setText(Integer.toString(inc6));
-            }
-        });
-
-        //Teleop Low Make + Button
-        btnPlus7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc7++;
-                tally7.setText(Integer.toString(inc7));
-            }
-        });
-
-        //Teleop Low Make - Button
-        btnMinus7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc7--;
-                tally7.setText(Integer.toString(inc7));
-            }
-        });
-
-        //Teleop Low Miss + Button
-        btnPlus8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc8++;
-                tally8.setText(Integer.toString(inc8));
-            }
-        });
-
-        //Teleop Low Miss - Button
-        btnMinus8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                inc8--;
-                tally8.setText(Integer.toString(inc8));
-            }
-        });
 
         //Checking if the checkboxes are checked
         if(leavesTarmac.isChecked()) {
