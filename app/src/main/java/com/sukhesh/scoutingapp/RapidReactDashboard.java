@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Handler;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,9 @@ public class RapidReactDashboard extends Fragment {
         animationDrawable.setEnterFadeDuration(2500);
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
+
+        Codes jsonCodes = new Codes(getResources().getStringArray(R.array.codes));
+
 
 
         //Move this to FinishTab.java thats where the qr is being created
@@ -333,7 +337,7 @@ public class RapidReactDashboard extends Fragment {
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment fragment = new FinishTab();
+                Fragment fragment = new QRPage();
                 replaceFragment(fragment);
             }
         });
