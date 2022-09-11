@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.dashboard:
-                    fragment = new Dashboard();
+                    fragment = new RapidReactDashboard();
                     break;
 
                 case R.id.history:

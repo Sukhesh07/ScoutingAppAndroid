@@ -30,14 +30,14 @@ public class FinishTab extends Fragment {
         String str = "Hello";
         ImageView ivOutput = rootView.findViewById(R.id.iv_output);
         MultiFormatWriter writer = new MultiFormatWriter();
-            try {
-                BitMatrix matrix = writer.encode(str, BarcodeFormat.QR_CODE, 1000, 1000);
-                BarcodeEncoder encoder = new BarcodeEncoder();
-                Bitmap bitmap = encoder.createBitmap(matrix);
-                ivOutput.setImageBitmap(bitmap);
-            } catch (WriterException e) {
-                e.printStackTrace();
-            }
+        try {
+            BitMatrix matrix = writer.encode(str, BarcodeFormat.QR_CODE, 1000, 1000);
+            BarcodeEncoder encoder = new BarcodeEncoder();
+            Bitmap bitmap = encoder.createBitmap(matrix);
+            ivOutput.setImageBitmap(bitmap);
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
         return rootView;
     }
 }

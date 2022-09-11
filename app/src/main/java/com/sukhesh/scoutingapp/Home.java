@@ -1,18 +1,13 @@
 package com.sukhesh.scoutingapp;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.SharedMemory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -26,10 +21,10 @@ public class Home extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View dashboardView = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View dashboardView = inflater.inflate(R.layout.fragment_rapid_react_dashboard, container, false);
         
-        TextView title = dashboardView.findViewById(R.id.dashboard_title);
-        TextView teamNum = dashboardView.findViewById(R.id.dashboard_teamNum);
+        TextView title = dashboardView.findViewById(R.id.title_dashboard);
+        TextView teamNum = dashboardView.findViewById(R.id.heading_dashboard_teamNum);
 
         /*
          * Set up the RecyclerView (essentially a list of items) for the list of quals
@@ -64,7 +59,7 @@ public class Home extends Fragment {
             bottomNav.setSelectedItemId(R.id.dashboard);
 
             FragmentTransaction fr = getParentFragmentManager().beginTransaction();
-            fr.replace(R.id.body_container, new Dashboard());
+            fr.replace(R.id.body_container, new RapidReactDashboard());
             fr.commit();
 
 //            Toast.makeText(
@@ -74,5 +69,6 @@ public class Home extends Fragment {
 //            ).show(); // show it after creating it
         });
         return homeView;
+
     }
 }

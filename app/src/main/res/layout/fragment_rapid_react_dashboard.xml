@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_list"
-    tools:context=".Dashboard">
+    tools:context=".RapidReactDashboard">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:paddingBottom="150sp">
 
         <TextView
-            android:id="@+id/dashboard_title"
+            android:id="@+id/title_dashboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/faxsansbeta"
@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/dashboard_teamNum"
+            android:id="@+id/heading_dashboard_teamNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/faxsansbeta"
@@ -38,10 +38,10 @@
             android:text="@string/teamNum_title"
             android:layout_marginTop="0sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
+            app:layout_constraintTop_toBottomOf="@+id/title_dashboard" />
 
         <TextView
-            android:id="@+id/dashboard_teamColor"
+            android:id="@+id/heading_dashboard_teamColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/faxsansbeta"
@@ -51,10 +51,10 @@
             android:textColor="@color/FEDS_WHITE"
             android:text="@string/color_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
+            app:layout_constraintTop_toBottomOf="@+id/title_dashboard" />
 
         <TextView
-            android:id="@+id/title_Autonomous"
+            android:id="@+id/section_autonomous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40sp"
@@ -64,31 +64,7 @@
             android:textSize="42sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
-
-        <TextView
-            android:id="@+id/title_Teleop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/faxsansbeta"
-            android:text="Teleop"
-            android:textColor="@color/FEDS_WHITE"
-            android:textSize="42sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/humanScored" />
-
-        <TextView
-            android:id="@+id/title_Endgame"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/faxsansbeta"
-            android:text="Endgame"
-            android:textColor="@color/FEDS_WHITE"
-            android:textSize="42sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/playedDefence" />
+            app:layout_constraintTop_toBottomOf="@+id/title_dashboard" />
 
         <View
             android:id="@+id/divider"
@@ -97,68 +73,10 @@
             android:background="@color/FEDS_WHITE"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
-
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="3dp"
-            android:layout_height="90sp"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="27sp"
-            android:background="@color/FEDS_WHITE"
-            app:layout_constraintStart_toEndOf="@+id/Auton_High_Title"
-            app:layout_constraintTop_toBottomOf="@+id/divider" />
-
-        <View
-            android:id="@+id/divider3"
-            android:layout_width="3dp"
-            android:layout_height="90sp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="51sp"
-            android:background="@color/FEDS_WHITE"
-            app:layout_constraintStart_toEndOf="@+id/Auton_Low_Title"
-            app:layout_constraintTop_toBottomOf="@+id/divider2" />
-
-        <View
-            android:id="@+id/divider4"
-            android:layout_width="300sp"
-            android:layout_height="3sp"
-            android:background="@color/FEDS_WHITE"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_Teleop" />
-
-        <View
-            android:id="@+id/divider5"
-            android:layout_width="3dp"
-            android:layout_height="90sp"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="27sp"
-            android:background="@color/FEDS_WHITE"
-            app:layout_constraintStart_toEndOf="@+id/Teleop_High_Title"
-            app:layout_constraintTop_toBottomOf="@+id/divider4" />
-
-        <View
-            android:id="@+id/divider6"
-            android:layout_width="3dp"
-            android:layout_height="90sp"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="53sp"
-            android:background="@color/FEDS_WHITE"
-            app:layout_constraintStart_toEndOf="@+id/Teleop_Low_Title"
-            app:layout_constraintTop_toBottomOf="@+id/divider5" />
-
-        <View
-            android:id="@+id/divider7"
-            android:layout_width="300sp"
-            android:layout_height="3sp"
-            android:background="@color/FEDS_WHITE"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_Endgame" />
+            app:layout_constraintTop_toBottomOf="@+id/section_autonomous" />
 
         <TextView
-            android:id="@+id/Auton_High_Title"
+            android:id="@+id/descriptor_auton_high"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50sp"
@@ -171,8 +89,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
 
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="3dp"
+            android:layout_height="90sp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="27sp"
+            android:background="@color/FEDS_WHITE"
+            app:layout_constraintStart_toEndOf="@+id/descriptor_auton_high"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
         <TextView
-            android:id="@+id/Auton_High_Make_title"
+            android:id="@+id/descriptor_auton_high_makes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30sp"
@@ -183,10 +111,10 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+            app:layout_constraintTop_toBottomOf="@+id/section_autonomous" />
 
         <TextView
-            android:id="@+id/Auton_High_Miss_title"
+            android:id="@+id/descriptor_auton_high_miss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30sp"
@@ -197,10 +125,10 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Auton_High_Make_title" />
+            app:layout_constraintTop_toBottomOf="@+id/descriptor_auton_high_makes" />
 
         <TextView
-            android:id="@+id/Auton_Low_Title"
+            android:id="@+id/descriptor_auton_low"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="100sp"
@@ -211,7 +139,17 @@
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Auton_High_Title" />
+            app:layout_constraintTop_toBottomOf="@+id/descriptor_auton_high" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="3dp"
+            android:layout_height="90sp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="51sp"
+            android:background="@color/FEDS_WHITE"
+            app:layout_constraintStart_toEndOf="@+id/descriptor_auton_low"
+            app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
         <TextView
             android:id="@+id/Auton_Low_Make_title"
@@ -225,7 +163,7 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+            app:layout_constraintTop_toBottomOf="@+id/section_autonomous" />
 
         <TextView
             android:id="@+id/Auton_Low_Miss_title"
@@ -242,6 +180,49 @@
             app:layout_constraintTop_toBottomOf="@+id/Auton_Low_Make_title" />
 
         <TextView
+            android:id="@+id/section_teleop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Teleop"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="42sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/humanScored" />
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="300sp"
+            android:layout_height="3sp"
+            android:background="@color/FEDS_WHITE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/section_teleop" />
+
+        <TextView
+            android:id="@+id/section_endgame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/faxsansbeta"
+            android:text="Endgame"
+            android:textColor="@color/FEDS_WHITE"
+            android:textSize="42sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playedDefence" />
+
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="3dp"
+            android:layout_height="90sp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="27sp"
+            android:background="@color/FEDS_WHITE"
+            app:layout_constraintStart_toEndOf="@+id/Teleop_High_Title"
+            app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+        <TextView
             android:id="@+id/Teleop_High_Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -254,6 +235,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+        <View
+            android:id="@+id/divider6"
+            android:layout_width="3dp"
+            android:layout_height="90sp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="53sp"
+            android:background="@color/FEDS_WHITE"
+            app:layout_constraintStart_toEndOf="@+id/Teleop_Low_Title"
+            app:layout_constraintTop_toBottomOf="@+id/divider5" />
 
         <TextView
             android:id="@+id/Teleop_High_Make_title"
@@ -287,8 +278,8 @@
             android:id="@+id/Teleop_Low_Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="280sp"
             android:layout_marginTop="100sp"
+            android:layout_marginRight="280sp"
             android:fontFamily="@font/faxsansbeta"
             android:text="Low"
             android:textColor="@color/FEDS_WHITE"
@@ -296,6 +287,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Teleop_High_Title" />
+
+        <View
+            android:id="@+id/divider7"
+            android:layout_width="300sp"
+            android:layout_height="3sp"
+            android:background="@color/FEDS_WHITE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/section_endgame" />
 
         <TextView
             android:id="@+id/Teleop_Low_Make_title"
@@ -329,15 +329,16 @@
             android:id="@+id/button_plus"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:layout_marginTop="20sp"
             android:layout_marginLeft="20sp"
+            android:layout_marginTop="20sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt autonHighMakes plus"
             android:text="+"
-            android:textSize="20sp"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
-            app:layout_constraintStart_toEndOf="@+id/Auton_High_Make_title"
-            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/descriptor_auton_high_makes"
+            app:layout_constraintTop_toBottomOf="@+id/section_autonomous" />
 
         <Button
             android:id="@+id/button_plus2"
@@ -346,11 +347,12 @@
             android:layout_marginLeft="20sp"
             android:layout_marginTop="10sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt autonHighMisses plus"
             android:text="+"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/Auton_High_Miss_title"
+            app:layout_constraintStart_toEndOf="@+id/descriptor_auton_high_miss"
             app:layout_constraintTop_toBottomOf="@+id/button_plus" />
 
         <Button
@@ -360,6 +362,7 @@
             android:layout_marginLeft="20sp"
             android:layout_marginTop="30sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt autonLowMakes plus"
             android:text="+"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
@@ -374,6 +377,7 @@
             android:layout_marginLeft="20sp"
             android:layout_marginTop="10sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt autonLowMisses plus"
             android:text="+"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
@@ -385,9 +389,10 @@
             android:id="@+id/button_plus5"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:layout_marginTop="20sp"
             android:layout_marginLeft="20sp"
+            android:layout_marginTop="20sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt teleopHighMakes plus"
             android:text="+"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
@@ -402,6 +407,7 @@
             android:layout_marginLeft="20sp"
             android:layout_marginTop="10sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt teleopHighMisses plus"
             android:text="+"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
@@ -413,9 +419,10 @@
             android:id="@+id/button_plus7"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:layout_marginTop="30sp"
             android:layout_marginLeft="20sp"
+            android:layout_marginTop="30sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt teleopLowMakes plus"
             android:text="+"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
@@ -427,9 +434,10 @@
             android:id="@+id/button_plus8"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:layout_marginTop="10sp"
             android:layout_marginLeft="20sp"
+            android:layout_marginTop="10sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt teleopLowMisses plus"
             android:text="+"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
@@ -441,28 +449,30 @@
             android:id="@+id/button_minus"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:layout_marginTop="20sp"
             android:layout_marginLeft="135sp"
+            android:layout_marginTop="20sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt autonHighMakes minus"
             android:text="-"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/Auton_High_Make_title"
-            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+            app:layout_constraintStart_toEndOf="@+id/descriptor_auton_high_makes"
+            app:layout_constraintTop_toBottomOf="@+id/section_autonomous" />
 
         <Button
             android:id="@+id/button_minus2"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:layout_marginTop="10sp"
             android:layout_marginLeft="135sp"
+            android:layout_marginTop="10sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt autonHighMisses minus"
             android:text="-"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/Auton_High_Miss_title"
+            app:layout_constraintStart_toEndOf="@+id/descriptor_auton_high_miss"
             app:layout_constraintTop_toBottomOf="@+id/button_minus" />
 
         <Button
@@ -472,6 +482,7 @@
             android:layout_marginLeft="135sp"
             android:layout_marginTop="30sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt autonLowMakes minus"
             android:text="-"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
@@ -483,9 +494,10 @@
             android:id="@+id/button_minus4"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:layout_marginTop="10sp"
             android:layout_marginLeft="135sp"
+            android:layout_marginTop="10sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt autonLowMisses minus"
             android:text="-"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
@@ -497,9 +509,10 @@
             android:id="@+id/button_minus5"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:layout_marginTop="20sp"
             android:layout_marginLeft="135sp"
+            android:layout_marginTop="20sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt teleopHighMakes minus"
             android:text="-"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
@@ -511,9 +524,10 @@
             android:id="@+id/button_minus6"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:layout_marginTop="10sp"
             android:layout_marginLeft="135sp"
+            android:layout_marginTop="10sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt teleopHighMisses minus"
             android:text="-"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
@@ -525,9 +539,10 @@
             android:id="@+id/button_minus7"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:layout_marginTop="30sp"
             android:layout_marginLeft="135sp"
+            android:layout_marginTop="30sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt autonLowMakes minus"
             android:text="-"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
@@ -539,9 +554,10 @@
             android:id="@+id/button_minus8"
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:layout_marginTop="10sp"
             android:layout_marginLeft="135sp"
+            android:layout_marginTop="10sp"
             android:backgroundTint="@color/FEDS_WHITE"
+            android:contentDescription="FiniteInt autonLowMisses minus"
             android:text="-"
             android:textAlignment="gravity"
             android:textColor="@color/FEDS_BLACK"
@@ -554,6 +570,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="17sp"
+            android:contentDescription="FiniteInt autonHighMakes tally"
             android:fontFamily="@font/faxsansbeta"
             android:text="0"
             android:textColor="@color/FEDS_WHITE"
@@ -567,6 +584,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10sp"
+            android:contentDescription="FiniteInt autonHighMisses tally"
             android:fontFamily="@font/faxsansbeta"
             android:text="0"
             android:textColor="@color/FEDS_WHITE"
@@ -580,6 +598,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="33dp"
+            android:contentDescription="FiniteInt autonLowMakes tally"
             android:fontFamily="@font/faxsansbeta"
             android:text="0"
             android:textColor="@color/FEDS_WHITE"
@@ -593,6 +612,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="13sp"
+            android:contentDescription="FiniteInt autonLowMisses tally"
             android:fontFamily="@font/faxsansbeta"
             android:text="0"
             android:textColor="@color/FEDS_WHITE"
@@ -606,6 +626,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
+            android:contentDescription="FiniteInt teleopHighMakes tally"
             android:fontFamily="@font/faxsansbeta"
             android:text="0"
             android:textColor="@color/FEDS_WHITE"
@@ -619,6 +640,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10sp"
+            android:contentDescription="FiniteInt teleopHighMisses tally"
             android:fontFamily="@font/faxsansbeta"
             android:text="0"
             android:textColor="@color/FEDS_WHITE"
@@ -632,6 +654,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="37sp"
+            android:contentDescription="FiniteInt autonLowMakes tally"
             android:fontFamily="@font/faxsansbeta"
             android:text="0"
             android:textColor="@color/FEDS_WHITE"
@@ -645,6 +668,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="13sp"
+            android:contentDescription="FiniteInt teleopLowMisses tally"
             android:fontFamily="@font/faxsansbeta"
             android:text="0"
             android:textColor="@color/FEDS_WHITE"
@@ -658,14 +682,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="280sp"
+            android:buttonTint="@color/FEDS_WHITE"
+            android:contentDescription="ClosedQuestion leavesTarmac check"
             android:fontFamily="@font/faxsansbeta"
+            android:text="Leaves Tarmac?"
             android:textColor="@color/FEDS_WHITE"
             android:textSize="32sp"
-            android:text="Leaves Tarmac?"
-            android:buttonTint="@color/FEDS_WHITE"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_Autonomous" />
+            app:layout_constraintTop_toBottomOf="@+id/section_autonomous" />
 
         <CheckBox
             android:id="@+id/humanScored"
@@ -673,6 +698,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10sp"
             android:buttonTint="@color/FEDS_WHITE"
+            android:contentDescription="ClosedQuestion humanScored check"
             android:fontFamily="@font/faxsansbeta"
             android:text="Human Scored?"
             android:textColor="@color/FEDS_WHITE"
@@ -687,6 +713,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="280sp"
             android:buttonTint="@color/FEDS_WHITE"
+            android:contentDescription="ClosedQuestion playedDefense check"
             android:fontFamily="@font/faxsansbeta"
             android:text="Played Defence?"
             android:textColor="@color/FEDS_WHITE"
@@ -700,6 +727,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10sp"
+            android:contentDescription="Timer endgameTime time"
             android:fontFamily="@font/faxsansbeta"
             android:format="00:00"
             android:textColor="@color/FEDS_WHITE"
@@ -714,6 +742,7 @@
             android:layout_height="50sp"
             android:layout_marginRight="70sp"
             android:background="@drawable/white_background"
+            android:contentDescription="Timer endgameTime start"
             android:src="@drawable/play_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -726,6 +755,7 @@
             android:layout_height="50sp"
             android:layout_marginLeft="70sp"
             android:background="@drawable/white_background"
+            android:contentDescription="Timer endgameTime stop"
             android:src="@drawable/refresh_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -737,11 +767,11 @@
             android:layout_width="200sp"
             android:layout_height="wrap_content"
             android:max="4"
+            android:progressBackgroundTint="@color/FEDS_WHITE"
             android:scaleX="1.5"
             android:scaleY="1.5"
-            android:progressBackgroundTint="@color/FEDS_WHITE"
-            android:thumbTint="@color/FEDS_WHITE"
             android:secondaryProgressTint="@color/FEDS_WHITE"
+            android:thumbTint="@color/FEDS_WHITE"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv" />
@@ -806,7 +836,7 @@
             android:textColor="@color/FEDS_BLACK"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dashboard_title" />
+            app:layout_constraintTop_toBottomOf="@+id/title_dashboard" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

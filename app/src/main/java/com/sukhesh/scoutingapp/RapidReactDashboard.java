@@ -1,7 +1,6 @@
 package com.sukhesh.scoutingapp;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 
@@ -13,23 +12,17 @@ import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.WriterException;
-import com.google.zxing.common.BitMatrix;
-import com.journeyapps.barcodescanner.BarcodeEncoder;
+import java.util.ArrayList;
 
-public class Dashboard extends Fragment {
+public class RapidReactDashboard extends Fragment {
 
     //You have to make shared preferences for all of these inc variables, the checkboxes, the stopwatch and the seekbar
     int inc = 0;
@@ -60,8 +53,9 @@ public class Dashboard extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_rapid_react_dashboard, container, false);
         ScrollView scrollView = rootView.findViewById(R.id.scrollView);
+
         AnimationDrawable animationDrawable = (AnimationDrawable) scrollView.getBackground();
         animationDrawable.setEnterFadeDuration(2500);
         animationDrawable.setExitFadeDuration(5000);
@@ -69,12 +63,16 @@ public class Dashboard extends Fragment {
 
 
         //Move this to FinishTab.java thats where the qr is being created
-        TextView text = rootView.findViewById(R.id.dashboard_title);
+        TextView text = rootView.findViewById(R.id.title_dashboard);
         Match currentMatch = Match.MatchFromSharedPreferences(getContext().getSharedPreferences("quals", Context.MODE_PRIVATE));
         text.setText(currentMatch.matchName());
 
         //Part where I absolutely violated Dashboard
         //Zayn you are absolutely going to have fun renaming all of these variables since you get code ocd
+        // i hate you sm :)))
+        ArrayList<View> plusButtons = new ArrayList<View>();
+
+        //rootView.findViewsWithText(plusButtons, "+");
         Button btnPlus = rootView.findViewById(R.id.button_plus);
         Button btnPlus2 = rootView.findViewById(R.id.button_plus2);
         Button btnPlus3 = rootView.findViewById(R.id.button_plus3);
