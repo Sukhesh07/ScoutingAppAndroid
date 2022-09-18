@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="codes">
+        <!-- TODO: maybe add time and date into here? -->
         <item>AA,matchType,String</item>
         <item>AB,matchNumber,int</item>
         <item>AC,teamNumber,int</item>

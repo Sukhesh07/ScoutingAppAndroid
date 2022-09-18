@@ -1,4 +1,4 @@
-package com.sukhesh.scoutingapp;
+package com.sukhesh.scoutingapp.storage;
 
 import java.util.ArrayList;
 
@@ -10,7 +10,7 @@ public class Codes {
     private final int TYPE = 2;
 
     Codes(String[] rawCodeData) {
-        this.codes = new ArrayList<String[]>();
+        this.codes = new ArrayList<>();
         for(String s: rawCodeData) {
             this.codes.add(s.split(","));
         }
@@ -52,7 +52,6 @@ public class Codes {
 
     private boolean isCode(String s) {
         if(s.length() != 2) return false;
-        if(!Character.isUpperCase(s.charAt(0)) || !Character.isUpperCase(s.charAt(1))) return false;
-        return true;
+        return Character.isUpperCase(s.charAt(0)) && Character.isUpperCase(s.charAt(1));
     }
 }

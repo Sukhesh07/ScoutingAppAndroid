@@ -1,14 +1,17 @@
-package com.sukhesh.scoutingapp;
+package com.sukhesh.scoutingapp.fields;
 
 import android.view.View;
 import android.widget.CheckBox;
+
+import com.sukhesh.scoutingapp.storage.JSONStorage;
+
 import java.util.ArrayList;
 
 public class ClosedQuestion {
-    String name;
-    CheckBox check;
+    public String name;
+    public CheckBox check;
 
-    boolean value;
+    public boolean value;
 
     ClosedQuestion(String name, CheckBox check) {
         this.name = name;
@@ -26,5 +29,12 @@ public class ClosedQuestion {
         }
 
         return closedQuestions;
+    }
+
+    public void updateValue(JSONStorage js, String matchName) {
+        this.value = js.getBoolean(matchName, this.name);
+        if(this.value) {
+            this.check.toggle();
+        }
     }
 }

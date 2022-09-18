@@ -1,5 +1,7 @@
 package com.sukhesh.scoutingapp;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
@@ -15,6 +17,7 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
+import com.sukhesh.scoutingapp.storage.JSONStorage;
 
 public class QRPage extends Fragment {
     @Override
@@ -23,11 +26,16 @@ public class QRPage extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_qr, container, false);
         View rootView2 = inflater.inflate(R.layout.activity_main, container, false);
         //Somehow have to combine shared preferences of all the inputs in dashboard and put it all into the qr good luck zayn
-        String str = "Hello";
+        SharedPreferences sp = requireContext().getSharedPreferences("quals", Context.MODE_PRIVATE);
+        JSONStorage storage = new JSONStorage(sp);
+        //String str = storage.makeQuickDebugString(sp.getString("currentMatch", "Q1"));
+        String keyValueString = storage.makeCitrusCircuitsStyleString(sp.getString("currentMatch", "Q1"), getResources().getStringArray(R.array.codes));
+
+
         ImageView ivOutput = rootView.findViewById(R.id.iv_output);
         MultiFormatWriter writer = new MultiFormatWriter();
         try {
-            BitMatrix matrix = writer.encode(str, BarcodeFormat.QR_CODE, 1000, 1000);
+            BitMatrix matrix = writer.encode(keyValueString, BarcodeFormat.QR_CODE, 1000, 1000);
             BarcodeEncoder encoder = new BarcodeEncoder();
             Bitmap bitmap = encoder.createBitmap(matrix);
             ivOutput.setImageBitmap(bitmap);

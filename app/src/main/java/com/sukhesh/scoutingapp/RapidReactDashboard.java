@@ -1,6 +1,7 @@
 package com.sukhesh.scoutingapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.os.Handler;
 import android.os.SystemClock;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,13 @@ import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.sukhesh.scoutingapp.fields.ClosedQuestion;
+import com.sukhesh.scoutingapp.fields.FiniteInt;
+import com.sukhesh.scoutingapp.storage.JSONStorage;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class RapidReactDashboard extends Fragment {
@@ -28,9 +37,14 @@ public class RapidReactDashboard extends Fragment {
     long tUpdate = 0L;
     boolean isResume = false;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_rapid_react_dashboard, container, false);
+
+        SharedPreferences sp = requireContext().getSharedPreferences("quals", Context.MODE_PRIVATE);
+        String matchName = sp.getString("currentMatch", "Q1");
+        JSONStorage storage = new JSONStorage(sp);
 
         // Scrolling of the page
         ScrollView scrollView = rootView.findViewById(R.id.scrollView);
@@ -40,23 +54,52 @@ public class RapidReactDashboard extends Fragment {
         animationDrawable.start();
 
 
-        //Move this to FinishTab.java that's where the qr is being created
-        TextView text = rootView.findViewById(R.id.title_dashboard);
-        Match currentMatch = Match.MatchFromSharedPreferences(requireContext().getSharedPreferences("quals", Context.MODE_PRIVATE));
-        text.setText(currentMatch.matchName());
+        TextView title = rootView.findViewById(R.id.title_dashboard);
+        String matchType = storage.getString(matchName, "matchType");
+        switch (matchType) {
+            case "Q":
+                title.setText("Qualification " + storage.getInt(matchName,"matchNumber"));
+                break;
+            case "PO":
+                title.setText("Playoff " + storage.getInt(matchName,"matchNumber"));
+                break;
+            case "SF":
+                title.setText("Semi Final " + storage.getInt(matchName,"matchNumber"));
+                break;
+            case "F":
+                title.setText("Final " + storage.getInt(matchName,"matchNumber"));
+                break;
+        }
+
+        TextView teamNum = rootView.findViewById(R.id.heading_dashboard_teamNum);
+        teamNum.setText(String.valueOf(storage.getInt(matchName,"teamNumber")));
+
+        TextView teamColor = rootView.findViewById(R.id.heading_dashboard_teamColor);
+        String robotAllianceInfo = storage.getString(matchName,"robotAllianceInfo");
+        switch (robotAllianceInfo.charAt(0)) {
+            case 'B':
+                teamColor.setText("Blue " + robotAllianceInfo.charAt(1));
+                break;
+            case 'R':
+                teamColor.setText("Red " + robotAllianceInfo.charAt(1));
+        }
 
         ArrayList<View> rawViews = new ArrayList<>();
         rootView.findViewsWithText(rawViews, "FiniteInt", View.FIND_VIEWS_WITH_CONTENT_DESCRIPTION);
         ArrayList<FiniteInt> finiteInts = FiniteInt.generateArrayListFromViews(rawViews);
 
         for(FiniteInt f: finiteInts) {
+            f.updateValue(storage, matchName);
             f.plus.setOnClickListener(view -> {
                 f.value++;
-                f.tally.setText(f.value);
+                f.tally.setText(String.valueOf(f.value));
+
+                storage.add(matchName, f.name, f.value);
             });
             f.minus.setOnClickListener(view -> {
                 f.value--;
-                f.tally.setText(f.value);
+                f.tally.setText(String.valueOf(f.value));
+                storage.add(matchName, f.name, f.value);
             });
         }
 
@@ -64,7 +107,11 @@ public class RapidReactDashboard extends Fragment {
         rootView.findViewsWithText(rawViews, "ClosedQuestion", View.FIND_VIEWS_WITH_CONTENT_DESCRIPTION);
         ArrayList<ClosedQuestion> checkboxes = ClosedQuestion.generateArrayListFromViews(rawViews);
         for(ClosedQuestion c: checkboxes) {
-            c.check.setOnClickListener(view -> c.value = c.check.isChecked());
+            c.updateValue(storage, matchName);
+            c.check.setOnClickListener(view -> {
+                c.value = c.check.isChecked();
+                storage.add(matchName, c.name, c.value);
+            });
         }
 
         //Seekbar, throw into shared preferences
@@ -75,6 +122,7 @@ public class RapidReactDashboard extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 tv.setText("Bar Climbed: " + i);
+
             }
 
             @Override

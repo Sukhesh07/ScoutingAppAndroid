@@ -1,21 +1,20 @@
-package com.sukhesh.scoutingapp;
+package com.sukhesh.scoutingapp.fields;
 
-import android.util.Log;
-import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.sukhesh.scoutingapp.storage.JSONStorage;
+
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class FiniteInt {
-    String name;
-    Button plus;
-    Button minus;
-    TextView tally;
+    public String name;
+    public Button plus;
+    public Button minus;
+    public TextView tally;
 
-    int value;
+    public int value;
 
     FiniteInt(String name, Button plus, Button minus, TextView tally) {
         this.name = name;
@@ -74,5 +73,10 @@ public class FiniteInt {
         }
 
         return finiteInts;
+    }
+
+    public void updateValue(JSONStorage js, String matchName) {
+        this.value = js.getInt(matchName, this.name);
+        this.tally.setText(String.valueOf(this.value));
     }
 }

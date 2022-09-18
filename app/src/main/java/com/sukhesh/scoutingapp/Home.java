@@ -1,7 +1,9 @@
 package com.sukhesh.scoutingapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,17 +17,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.sukhesh.scoutingapp.storage.JSONStorage;
+
+import org.json.JSONException;
 
 
 public class Home extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View dashboardView = inflater.inflate(R.layout.fragment_rapid_react_dashboard, container, false);
-        
-        TextView title = dashboardView.findViewById(R.id.title_dashboard);
-        TextView teamNum = dashboardView.findViewById(R.id.heading_dashboard_teamNum);
-
         /*
          * Set up the RecyclerView (essentially a list of items) for the list of quals
          */
@@ -41,19 +41,31 @@ public class Home extends Fragment {
          */
         // collect the matches from strings.xml
         String[] rawStringValues = getResources().getStringArray(R.array.quals);
-        Matches matches = new Matches(rawStringValues);
+        SharedPreferences sp = requireContext().getSharedPreferences("quals", Context.MODE_PRIVATE);
+
+        // if you already loaded the matches, then don't overwrite data
+        JSONStorage ex = new JSONStorage(sp);
+        if (ex.jo.equals("")) {
+            try {
+                JSONStorage.addMatches(requireContext().getSharedPreferences("quals", Context.MODE_PRIVATE), rawStringValues);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
 
         /*
          * Set up what happens when a Qual is pressed
          */
-        QualsRecyclerViewAdapter qualsAdapter = new QualsRecyclerViewAdapter(getActivity(), matches.listOfMatchTypeAndNumber());
+        QualsRecyclerViewAdapter qualsAdapter = new QualsRecyclerViewAdapter(getActivity(), JSONStorage.GetListOfMatches(requireContext().getSharedPreferences("quals", Context.MODE_PRIVATE)));
         // use our adaptor, see QualsRecyclerViewAdapter, to interact with the Quals RecycleView
         qualsList.setAdapter(qualsAdapter);
         qualsList.setItemAnimator(new DefaultItemAnimator());
 
         qualsAdapter.setClickListener(position -> {
             String matchName = qualsAdapter.getItem(position);
-            matches.storeMatchByMatchName(matchName, getContext().getSharedPreferences("quals", Context.MODE_PRIVATE));
+            SharedPreferences.Editor editor = requireContext().getSharedPreferences("quals", Context.MODE_PRIVATE).edit();
+            editor.putString("currentMatch", matchName);
+            editor.apply();
 
             BottomNavigationView bottomNav = getActivity().findViewById(R.id.bottom_navigation);
             bottomNav.setSelectedItemId(R.id.dashboard);
@@ -61,12 +73,6 @@ public class Home extends Fragment {
             FragmentTransaction fr = getParentFragmentManager().beginTransaction();
             fr.replace(R.id.body_container, new RapidReactDashboard());
             fr.commit();
-
-//            Toast.makeText(
-//                    getActivity(), // what to make the text for
-//                    "The matchName is " + matchName, // the text
-//                    Toast.LENGTH_SHORT // duration
-//            ).show(); // show it after creating it
         });
         return homeView;
 
