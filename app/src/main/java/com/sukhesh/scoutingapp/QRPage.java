@@ -26,7 +26,7 @@ public class QRPage extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_qr, container, false);
         View rootView2 = inflater.inflate(R.layout.activity_main, container, false);
         //Somehow have to combine shared preferences of all the inputs in dashboard and put it all into the qr good luck zayn
-        SharedPreferences sp = requireContext().getSharedPreferences("quals", Context.MODE_PRIVATE);
+        SharedPreferences sp = requireContext().getSharedPreferences("matches", Context.MODE_PRIVATE);
         JSONStorage storage = new JSONStorage(sp);
         //String str = storage.makeQuickDebugString(sp.getString("currentMatch", "Q1"));
         String keyValueString = storage.makeCitrusCircuitsStyleString(sp.getString("currentMatch", "Q1"), getResources().getStringArray(R.array.codes));

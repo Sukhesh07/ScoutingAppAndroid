@@ -41,13 +41,13 @@ public class Home extends Fragment {
          */
         // collect the matches from strings.xml
         String[] rawStringValues = getResources().getStringArray(R.array.quals);
-        SharedPreferences sp = requireContext().getSharedPreferences("quals", Context.MODE_PRIVATE);
+        SharedPreferences sp = requireContext().getSharedPreferences("matches", Context.MODE_PRIVATE);
 
         // if you already loaded the matches, then don't overwrite data
-        JSONStorage ex = new JSONStorage(sp);
-        if (ex.jo.equals("")) {
+        String rawJSONValue = sp.getString("json", "");
+        if (rawJSONValue.equals("")) {
             try {
-                JSONStorage.addMatches(requireContext().getSharedPreferences("quals", Context.MODE_PRIVATE), rawStringValues);
+                JSONStorage.addMatches(sp, rawStringValues);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -56,14 +56,14 @@ public class Home extends Fragment {
         /*
          * Set up what happens when a Qual is pressed
          */
-        QualsRecyclerViewAdapter qualsAdapter = new QualsRecyclerViewAdapter(getActivity(), JSONStorage.GetListOfMatches(requireContext().getSharedPreferences("quals", Context.MODE_PRIVATE)));
+        QualsRecyclerViewAdapter qualsAdapter = new QualsRecyclerViewAdapter(getActivity(), JSONStorage.GetListOfMatches(sp));
         // use our adaptor, see QualsRecyclerViewAdapter, to interact with the Quals RecycleView
         qualsList.setAdapter(qualsAdapter);
         qualsList.setItemAnimator(new DefaultItemAnimator());
 
         qualsAdapter.setClickListener(position -> {
             String matchName = qualsAdapter.getItem(position);
-            SharedPreferences.Editor editor = requireContext().getSharedPreferences("quals", Context.MODE_PRIVATE).edit();
+            SharedPreferences.Editor editor = sp.edit();
             editor.putString("currentMatch", matchName);
             editor.apply();
 

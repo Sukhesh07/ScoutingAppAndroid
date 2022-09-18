@@ -42,7 +42,7 @@ public class RapidReactDashboard extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_rapid_react_dashboard, container, false);
 
-        SharedPreferences sp = requireContext().getSharedPreferences("quals", Context.MODE_PRIVATE);
+        SharedPreferences sp = requireContext().getSharedPreferences("matches", Context.MODE_PRIVATE);
         String matchName = sp.getString("currentMatch", "Q1");
         JSONStorage storage = new JSONStorage(sp);
 
