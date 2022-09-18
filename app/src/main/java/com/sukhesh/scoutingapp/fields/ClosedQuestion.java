@@ -8,8 +8,8 @@ import com.sukhesh.scoutingapp.storage.JSONStorage;
 import java.util.ArrayList;
 
 public class ClosedQuestion {
-    public String name;
-    public CheckBox check;
+    public final String name;
+    public final CheckBox check;
 
     public boolean value;
 

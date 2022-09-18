@@ -14,10 +14,10 @@ public class Matches {
     }
 
     public ArrayList<Match> parseRawMatches(String[] rawMatches) {
-        ArrayList<String> intermediaryStringRepresentation = new ArrayList<String>();
+        ArrayList<String> intermediaryStringRepresentation = new ArrayList<>();
         Collections.addAll(intermediaryStringRepresentation, rawMatches);
 
-        ArrayList<Match> finalMatches = new ArrayList<Match>();
+        ArrayList<Match> finalMatches = new ArrayList<>();
         for(String match: intermediaryStringRepresentation) {
             String[] fields = match.split(",");
             if(fields.length != 5) {
@@ -53,7 +53,7 @@ public class Matches {
     }
 
     public ArrayList<String> listOfMatchTypeAndNumber() {
-        ArrayList<String> finalArray = new ArrayList<String>();
+        ArrayList<String> finalArray = new ArrayList<>();
         for(Match m: this.matchList) {
             finalArray.add(m.matchName());
         }

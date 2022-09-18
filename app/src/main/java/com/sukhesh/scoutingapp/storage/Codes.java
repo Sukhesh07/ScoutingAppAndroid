@@ -7,7 +7,6 @@ public class Codes {
 
     private final int CODE = 0;
     private final int PROPERTY_NAME = 1;
-    private final int TYPE = 2;
 
     Codes(String[] rawCodeData) {
         this.codes = new ArrayList<>();
@@ -37,6 +36,7 @@ public class Codes {
     public String findType(String s) {
         boolean isCode = this.isCode(s);
         for (String[] row: this.codes) {
+            int TYPE = 2;
             if(isCode) {
                 if (row[CODE].equals(s)) {
                     return row[TYPE];

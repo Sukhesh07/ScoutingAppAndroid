@@ -31,10 +31,10 @@ public class FiniteInt {
         final int MINUS = 1;
         final int TALLY = 2;
 
-        ArrayList<String> names = new ArrayList<String>();
-        ArrayList<View[]> intermediateViews = new ArrayList<View[]>();
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<View[]> intermediateViews = new ArrayList<>();
 
-        ArrayList<FiniteInt> finiteInts = new ArrayList<FiniteInt>();
+        ArrayList<FiniteInt> finiteInts = new ArrayList<>();
         for(View v: views) {
             String name = v.getContentDescription().toString().split(" ")[1];
             String component = v.getContentDescription().toString().split(" ")[2].toLowerCase();

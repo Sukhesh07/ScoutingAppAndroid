@@ -20,6 +20,6 @@
             Intent intent = new Intent(Splash.this, MainActivity.class);
             startActivity(intent);
             finish();
-        }, 0);
+        }, 3000);
     }
 }

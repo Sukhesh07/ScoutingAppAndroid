@@ -2,31 +2,26 @@ package com.sukhesh.scoutingapp;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
 import android.os.SystemClock;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
-import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.sukhesh.scoutingapp.fields.ClosedQuestion;
 import com.sukhesh.scoutingapp.fields.FiniteInt;
 import com.sukhesh.scoutingapp.storage.JSONStorage;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -41,19 +36,9 @@ public class RapidReactDashboard extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_rapid_react_dashboard, container, false);
-
         SharedPreferences sp = requireContext().getSharedPreferences("matches", Context.MODE_PRIVATE);
         String matchName = sp.getString("currentMatch", "Q1");
         JSONStorage storage = new JSONStorage(sp);
-
-        // Scrolling of the page
-        ScrollView scrollView = rootView.findViewById(R.id.scrollView);
-        AnimationDrawable animationDrawable = (AnimationDrawable) scrollView.getBackground();
-        animationDrawable.setEnterFadeDuration(2500);
-        animationDrawable.setExitFadeDuration(5000);
-        animationDrawable.start();
-
-
         TextView title = rootView.findViewById(R.id.title_dashboard);
         String matchType = storage.getString(matchName, "matchType");
         switch (matchType) {
@@ -161,38 +146,32 @@ public class RapidReactDashboard extends Fragment {
         };
 
 
-        btStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!isResume) {
-                    tStart = SystemClock.uptimeMillis();
-                    handler.postDelayed(runnable, 0);
-                    stopwatch.start();
-                    isResume = true;
-                    btStop.setVisibility(View.GONE);
-                    btStart.setImageDrawable(getResources().getDrawable(R.drawable.pause_icon));
-                } else {
-                    tBuff += tMillis;
-                    handler.removeCallbacks(runnable);
-                    stopwatch.stop();
-                    isResume = false;
-                    btStop.setVisibility(View.VISIBLE);
-                    btStart.setImageDrawable(getResources().getDrawable(R.drawable.play_icon));
-                }
+        btStart.setOnClickListener(view -> {
+            if (!isResume) {
+                tStart = SystemClock.uptimeMillis();
+                handler.postDelayed(runnable, 0);
+                stopwatch.start();
+                isResume = true;
+                btStop.setVisibility(View.GONE);
+                btStart.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.pause_icon, null));
+            } else {
+                tBuff += tMillis;
+                handler.removeCallbacks(runnable);
+                stopwatch.stop();
+                isResume = false;
+                btStop.setVisibility(View.VISIBLE);
+                btStart.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.play_icon, null));
             }
         });
 
-        btStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!isResume) {
-                    btStart.setImageDrawable(getResources().getDrawable(R.drawable.play_icon));
-                    tMillis = 0L;
-                    tStart = 0L;
-                    tBuff = 0L;
-                    tUpdate = 0L;
-                    stopwatch.setText("00:00");
-                }
+        btStop.setOnClickListener(view -> {
+            if (!isResume) {
+                btStart.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.play_icon, null));
+                tMillis = 0L;
+                tStart = 0L;
+                tBuff = 0L;
+                tUpdate = 0L;
+                stopwatch.setText("00:00");
             }
         });
 

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textAlignment="center"
-        android:textColor="@color/FEDS_WHITE"
+        android:textColor="#1B263B"
         android:fontFamily="@font/firasansbold"
         android:background="@drawable/blue_background"
         android:textSize="20sp"/>

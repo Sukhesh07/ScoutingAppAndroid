@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="FEDS_RED">#FE012D</color>
-    <color name="FEDS_BLUE">#0071E7</color>
     <color name="FEDS_BLACK">#000000</color>
-    <color name="FEDS_GREY">#B2B2B2</color>
     <color name="FEDS_WHITE">#FFFFFF</color>
 </resources>

@@ -1,7 +1,6 @@
 package com.sukhesh.scoutingapp.storage;
 
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -3,6 +3,7 @@ package com.sukhesh.scoutingapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
