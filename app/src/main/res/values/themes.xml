@@ -6,5 +6,6 @@
     </style>
     <style name="SplashScreen" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:statusBarColor">#14192f</item>
+        <item name="android:navigationBarColor">#333449</item>
     </style>
 </resources>

@@ -3,4 +3,8 @@
         <item name="android:statusBarColor">#778DA9</item>
         <item name="android:navigationBarColor">#1B263B</item>
     </style>
+    <style name="SplashScreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">#14192f</item>
+        <item name="android:navigationBarColor">#333449</item>
+    </style>
 </resources>

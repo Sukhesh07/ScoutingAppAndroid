@@ -6,7 +6,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.sukhesh.fragment"
+        applicationId "com.sukhesh.scoutingapp"
         minSdk 30
         targetSdk 32
         versionCode 1
