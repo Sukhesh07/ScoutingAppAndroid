@@ -1,6 +1,9 @@
 package com.sukhesh.scoutingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        hideSystemBars();
 
         //Set the content view to the layout file activity_main
         setContentView(R.layout.activity_main);
@@ -60,13 +64,13 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new RapidReactDashboard();
                     break;
 
-                case R.id.history:
-                    fragment = new History();
-                    break;
+                //case R.id.history:
+                    //fragment = new History();
+                    //break;
 
-                case R.id.settings:
-                    fragment = new Settings();
-                    break;
+               // case R.id.settings:
+                    //fragment = new Settings();
+                   // break;
 
             }
 
@@ -79,5 +83,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void transitionToFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.body_container, fragment).commit();
+    }
+
+    private void hideSystemBars() {
+        WindowInsetsControllerCompat windowInsetsController =
+                ViewCompat.getWindowInsetsController(getWindow().getDecorView());
+        if (windowInsetsController == null) {
+            return;
+        }
+        // Configure the behavior of the hidden system bars
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+        // Hide both the status bar and the navigation bar
+        windowInsetsController.hide(WindowInsetsCompat.Type.navigationBars());
     }
 }

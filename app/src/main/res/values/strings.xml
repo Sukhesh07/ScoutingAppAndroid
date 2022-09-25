@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FEDS Scouting</string>
     <string name="menu_home_title">Home</string>
-    <string name="menu_dashboard_title">Dashboard</string>
+    <string name="menu_dashboard_title">Input</string>
     <string name="menu_history_title">History</string>
     <string name="menu_settings_title">Settings</string>
     <string name="home_matches_title">Matches</string>

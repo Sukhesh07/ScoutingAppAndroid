@@ -11,14 +11,4 @@
         android:icon="@drawable/dashboard_icon"
         android:title="@string/menu_dashboard_title"/>
 
-    <item
-        android:id="@+id/history"
-        android:icon="@drawable/history_icon"
-        android:title="@string/menu_history_title"/>
-
-    <item
-        android:id="@+id/settings"
-        android:icon="@drawable/settings_icon"
-        android:title="@string/menu_settings_title"/>
-
 </menu>

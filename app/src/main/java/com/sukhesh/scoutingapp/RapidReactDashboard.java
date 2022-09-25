@@ -5,6 +5,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.core.content.res.ResourcesCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
